@@ -21,6 +21,14 @@ function App() {
     setTodoItems(todos);
   };
 
+  const updateTodoItem = (index) => {
+    const todos = [...todoItems];
+    if (!todos[index].complete) {
+      todos[index].complete = true;
+      setTodoItems(todos);
+    }
+  };
+
   return (
     <div className="App">
       <TodoInput createTodoItem={createTodoItem} />
@@ -30,6 +38,7 @@ function App() {
           index={index}
           item={item}
           deleteTodoItem={deleteTodoItem}
+          updateTodoItem={updateTodoItem}
         />
       ))}
     </div>
